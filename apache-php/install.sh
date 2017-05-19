@@ -16,4 +16,4 @@ output+="  tty: true \n"
 printf "$output" > docker-compose.yml
 
 docker-compose up -d
-docker exec -it $1 /bin/bash -c 'apt-get update && apt-get -y install apache2 && apt-get -y install php libapache2-mod-php php-mcrypt && service apache2 restart && chmod -R 777 /var/www'
+docker exec -it $1 /bin/bash -c 'apt-get update && apt-get -y install apache2 && apt-get -y install php libapache2-mod-php php-mcrypt php-mysql php-xml && a2enmod rewrite && service apache2 restart && chmod -R 777 /var/www'
