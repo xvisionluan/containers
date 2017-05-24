@@ -9,7 +9,7 @@ fi
 output="mysql: \n"
 output+="  container_name: mysql \n"
 output+="  image: mysql \n"
-output+="  restart: always \n"
+output+="  restart: 'no' \n"
 output+="  ports: \n"
 output+="    - '3306:3306' \n"
 output+="  environment: \n"
