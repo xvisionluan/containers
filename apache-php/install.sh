@@ -21,7 +21,8 @@ printf "$compose" > docker-compose.yml
 docker-compose up -d
 
 # Configura as dependencias 
-docker exec -it $1 /bin/bash -c 'apt-get update && apt-get -y install curl && apt-get -y install git && apt-get -y install unzip && apt-get -y install php'
+docker exec -it $1 /bin/bash -c 'apt-get update && apt-get -y install curl && apt-get install ffmpeg libav-tools
+ && apt-get -y install git && apt-get -y install unzip && apt-get -y install php'
 docker exec -it $1 /bin/bash -c 'cd /tmp && curl -sS https://getcomposer.org/installer | php && chmod +x composer.phar && mv composer.phar /bin/composer && composer -v'
 docker exec -it $1 /bin/bash -c 'apt-get -y install apache2 libapache2-mod-php php-mcrypt php-mysql php-xml php-gd php-curl php7.0-mbstring'
 docker exec -it $1 /bin/bash -c 'a2enmod rewrite'
